@@ -1,9 +1,10 @@
+const path = require("path");
 module.exports = {
+  "mode": "development",
+  "entry": "./index.ts",
   "output": {
-    "filename": "[name].pack.js"
-  },
-  "entry": {
-    "index": "./index"
+    "filename": "index.pack.js",
+    "path": path.resolve(__dirname, "dist")
   },
   "resolve": {
     "extensions": [
