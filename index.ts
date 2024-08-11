@@ -20,9 +20,9 @@ const reviews = [
         date: '27-03-2021'
     },
 ]
-
-function showReviewTotal (value : number ) {
-    reviewTotalDisplay?.innerHTML = 'review total ' + value.toString()
+function showReviewTotal (value : number, reviewer: string, isLoyalty : boolean) {
+    const iconDisplay = isLoyalty ? '⭐' : ''
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
 }
 
-showReviewTotal(reviews.length)
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
