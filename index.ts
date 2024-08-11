@@ -1,15 +1,14 @@
-const reviewTotalDisplay = document.querySelector('#reviews')
-const returningUserDisplay = document.querySelector('#returning-user')
-const userNameDisplay = document.querySelector('#user')
+import { showReviewTotal, populateUser} from "./utils"
 
 let isOpen : boolean
 
-const reviews : {
-    name: string;
-    stars: number;
-    loyaltyUser: boolean;
-    date: string;
-}[] = [
+// Reviews
+const reviews : { 
+    name: string; 
+    stars: number; 
+    loyaltyUser: boolean; 
+    date: string
+    }[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -29,16 +28,10 @@ const reviews : {
         date: '27-03-2021'
     },
 ]
-]
-function showReviewTotal (value : number, reviewer: string, isLoyalty : boolean) {
-    const iconDisplay = isLoyalty ? '' : ''
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
-}
 
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
-
+// User
 const you: {
-    firstName : string;
+    firstName: string;
     lastName: string;
     isReturning: boolean;
     age: number;
@@ -51,11 +44,24 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-function populateUser(isReturning : boolean, userName : string ) {
-    if (isReturning == true){
-        returningUserDisplay.innerHTML = 'back'
-    }
-    userNameDisplay.innerHTML = userName
-}
+//Properties
+const properties : {
+    image: string;
+    title: string;
+    price: number;
+    location: {
+        firstLine: string;
+        city: string;
+        code: number;
+        country: string;
+    };
+    contact: string;
+    isAvailable: boolean;
+}[] = [
+    
+]
+
+
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.userName)
