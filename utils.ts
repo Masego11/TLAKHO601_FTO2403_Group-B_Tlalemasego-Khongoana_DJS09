@@ -1,6 +1,7 @@
 const reviewTotalDisplay = document.querySelector('#reviews')
 const returningUserDisplay = document.querySelector('#returning-user')
 const userNameDisplay = document.querySelector('#user')
+import { LoyaltyUser, Permissions } from "./src/enum"
 import { Review } from "./src/interfaces"
 
 enum Permissions {
