@@ -1,10 +1,12 @@
-const propertyContainer = document.querySelector('.properties')
-
+// Imports showReviewTotal and populateUser functions
 import { showReviewTotal, populateUser} from "../utils"
+
+// Selecting the property container
+const propertyContainer = document.querySelector('.properties')
 
 let isOpen : boolean
 
-// Reviews
+// Reviews object 
 const reviews : { 
     name: string; 
     stars: number; 
@@ -31,7 +33,7 @@ const reviews : {
     },
 ]
 
-// User
+// User data object
 const you: {
     firstName: string;
     lastName: string;
@@ -46,7 +48,7 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-//Properties
+//Properties object 
 const properties : {
     image: string;
     title: string;
@@ -102,11 +104,12 @@ const properties : {
     
 ]
 
-
+//Function calls 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.userName)
 
+//Loop to iterate over the properties array and create a card for each property
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
     card.classList.add('card')
