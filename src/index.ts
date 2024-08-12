@@ -1,10 +1,10 @@
 // Imports 
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from "../utils";
-import { Review, Property } from "./interfaces";
+import { Property, Review } from "./interfaces";
 import { LoyaltyUser, Permissions } from "./enum";
 import MainProperty from "./classes";
 
-// Selecting containers
+// Selecting DOM elements 
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 const reviewContainer = document.querySelector('.reviews')
@@ -13,7 +13,7 @@ const button = document.querySelector('button')
 
 let isOpen : boolean
 
-// Reviews object 
+// Reviews Array
 const reviews: Review [] = [
     {
         name: 'Sheia',
@@ -45,6 +45,7 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 } 
 
+//Property interface array
 interface Property{
     image: string;
     title: string;
@@ -130,6 +131,7 @@ for (let i = 0; i < properties.length; i++) {
     propertyContainer.appendChild(card)
 }
 
+//Add reviews function
 let count = 0
 function addReviews(array : Review[]) : void {
     if (!count ) {
@@ -147,9 +149,11 @@ function addReviews(array : Review[]) : void {
 
 button.addEventListener('click', () => addReviews(reviews))
 
+//Current location and footer 
 let currentLocation: [string, string, number] = ['London', '11:35', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + ''
 
+//Initialization of main property
 let yourMainProperty = new MainProperty(
     'images/italian-property.jpg', 
     'Italian House',

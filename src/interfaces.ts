@@ -6,7 +6,7 @@ export interface Review {
     loyaltyUser: LoyaltyUser; 
     date: string;   
 }
-export interface Property{
+export interface Property {
     image: string;
     title: string;
     price: number;
