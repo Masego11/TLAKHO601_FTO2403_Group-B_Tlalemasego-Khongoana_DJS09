@@ -9,12 +9,7 @@ const footer = document.querySelector('.footer')
 let isOpen : boolean
 
 // Reviews object 
-const reviews : { 
-    name: string; 
-    stars: number; 
-    loyaltyUser: LoyaltyUser; 
-    date: string
-    }[] = [
+const reviews : any[] =[
     {
         name: 'Sheia',
         stars: 5,
@@ -56,7 +51,7 @@ const properties : {
         code: number;
         country: string;
     };
-    contact: string;
+    contact: [number, string];
     isAvailable: boolean;
 }[] = [
     {
@@ -69,7 +64,7 @@ const properties : {
             code: 45632,
             country: 'Colombia'
         },
-        contact: 'marywinkle@gmail.com',
+        contact: [+112343823978921, 'marywinkle@gmail.com'],
         isAvailable: true  
     },
     {
@@ -82,7 +77,7 @@ const properties : {
             code: 343903,
             country: 'Poland'
         },
-        contact: 'garydavis@hotmail.com',
+        contact: [+1298239028490830, 'garydavis@hotmail.com'],
         isAvailable: false 
     },
     {
@@ -95,7 +90,7 @@ const properties : {
             code: 35433,
             country: 'United Kingdom',
         },
-        contact: 'andyluger@aol.com',
+        contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true
     }
     
@@ -103,8 +98,19 @@ const properties : {
 
 //Function calls 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
+populateUser(you.isReturning, you.firstName)
 
-populateUser(you.isReturning, you.userName)
+let authorityStatus : any
+
+isLoggedIn = false
+
+function showDetails(authorityStatus: boolean | Permissions, element : HTMLDivElement, price: number) {
+   if (authorityStatus) {
+       const priceDisplay = document.createElement('div')
+       priceDisplay.innerHTML = price.toString() + '/night'
+       element.appendChild(priceDisplay)
+   }
+}
 
 //Loop to iterate over the properties array and create a card for each property
 for (let i = 0; i < properties.length; i++) {
@@ -115,6 +121,7 @@ for (let i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
     propertyContainer.appendChild(card)
+    showDetails(you.permissions, card, properties[i].price)
 }
 
 let currentLocation: [string, string, number] = ['London', '11:35', 17]
