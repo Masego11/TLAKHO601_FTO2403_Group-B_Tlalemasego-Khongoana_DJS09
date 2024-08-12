@@ -1,6 +1,7 @@
 // Imports 
-import { showReviewTotal, populateUser} from "../utils";
+import { showReviewTotal, populateUser, showDetails} from "../utils";
 import { Permissions, LoyaltyUser } from "./enum";
+import { Price, Country } from "./types";
 
 // Selecting the property container
 const propertyContainer = document.querySelector('.properties')
@@ -99,18 +100,6 @@ const properties : {
 //Function calls 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 populateUser(you.isReturning, you.firstName)
-
-let authorityStatus : any
-
-isLoggedIn = false
-
-function showDetails(authorityStatus: boolean | Permissions, element : HTMLDivElement, price: number) {
-   if (authorityStatus) {
-       const priceDisplay = document.createElement('div')
-       priceDisplay.innerHTML = price.toString() + '/night'
-       element.appendChild(priceDisplay)
-   }
-}
 
 //Loop to iterate over the properties array and create a card for each property
 for (let i = 0; i < properties.length; i++) {
