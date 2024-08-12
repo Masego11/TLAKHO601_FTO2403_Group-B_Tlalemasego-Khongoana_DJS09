@@ -4,17 +4,6 @@ const userNameDisplay = document.querySelector('#user')
 import { LoyaltyUser, Permissions } from "./src/enum"
 import { Review } from "./src/interfaces"
 
-enum Permissions {
-    ADMIN = 'ADMIN', 
-    READ_ONLY = 'READ_ONLY'
-}
-
-enum LoyaltyUser {
-    GOLD_USER = 'GOLD_USER',
-    SILVER_USER = 'SILVER_USER',
-    BRONZE_USER = 'BRONZE_USER'
-}
-
 export function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
     const iconDisplay = isLoyalty ? '' : ''
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
